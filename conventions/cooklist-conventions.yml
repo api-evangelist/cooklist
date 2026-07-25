@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://cooklist.com/llms.txt
+docs: https://cooklist.com/platform/agentic-commerce
+# Cross-cutting request/response semantics captured from the documented
+# integration model. Cooklist publishes no public OpenAPI; idempotency is NOT
+# documented, so no Idempotency pointer is emitted (no fabrication).
+authentication:
+  style: API key or JWT bearer (B2B Partner API); retailer-minted session tokens for the embedded SDK
+  ref: authentication/cooklist-authentication.yml
+transport:
+  api_style: GraphQL over HTTPS
+  streaming: WSS (WebSockets) for real-time token streaming and structured UI blocks
+  server_to_server: retailer catalog/inventory/cart APIs called server-to-server from Cooklist
+  gateway_proxy: optional retailer API gateway may proxy HTTPS + WSS
+authorization:
+  field_allowlists: per-organization field allowlists scope each retailer's data/capabilities
+  policy: deny-by-default, token-scoped, tenant isolation at app and DB layers
+idempotency:
+  documented: false
+rate_limiting:
+  documented: true
+  note: Rate limiting and abuse protection applied across HTTPS + WSS; circuit breakers for DoS/abuse.
+webhooks:
+  documented: true
+  ref: asyncapi/cooklist-webhooks.yml
+output_safety:
+  model: ID-first rendering — the LLM emits IDs only; Cooklist backend verifies and enriches from the retailer catalog before display
+  sanitization: markdown output only, no raw HTML; schema enforcement + provenance checks (prompt-injection defense)
+data_handling:
+  identifiers: pseudonymous shopper identifiers (no direct PII required); no payment data handled
+  retention: configurable TTL; deletion/export supported per tenant/session; automated anonymization schedules

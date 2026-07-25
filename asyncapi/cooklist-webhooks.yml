@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: https://cooklist.com/llms.txt
+type: Webhooks
+# Cooklist documents an authenticated webhook surface (retailer -> Cooklist)
+# plus a WSS real-time streaming channel (Cooklist -> client). No published
+# AsyncAPI document exists; this captures the documented event surface. Event
+# names below are descriptive of the documented categories, not a published
+# channel schema.
+transports:
+- name: webhooks
+  direction: inbound (retailer -> Cooklist)
+  auth: authenticated
+  description: Keep Cooklist in sync with retailer systems in near real time.
+  events:
+  - key: purchase.data
+    description: Purchase/transaction data used for personalization and outcome-based analytics.
+  - key: inventory.update
+    description: Inventory availability and pricing updates per store location and fulfillment type.
+  - key: fulfillment.event
+    description: Fulfillment events (pickup, delivery, in-store) reflecting order/fulfillment state.
+- name: streaming
+  direction: outbound (Cooklist -> client)
+  protocol: WSS (WebSockets)
+  description: Real-time token streaming and structured UI blocks (product cards, recipe cards, bundles) to the embedded SDK.
+notes: >-
+  The retailer's client communicates with Cooklist only over HTTPS (GraphQL) and
+  WSS. Retailer catalog/inventory/cart APIs are called server-to-server from
+  Cooklist and are never exposed directly to the client. An optional retailer API
+  gateway may proxy HTTPS and WSS.

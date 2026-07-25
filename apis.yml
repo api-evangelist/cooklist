@@ -1,25 +1,92 @@
 aid: cooklist
 name: Cooklist
-description: Cooklist is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Cooklist is an agentic commerce platform purpose-built for grocery and retail.
+  It provides retailer-native AI shopping assistants that plan meals, run
+  solution-first agentic search over live catalog and inventory, assemble
+  cart-ready bundles, and execute verified cart operations against the retailer's
+  system of record. Founded in 2018, Cooklist powers the first agentic AI
+  shopping experience launched by Kroger (the Kroger AI Meal Assistant, live
+  since December 2025) and integrates with 15+ retailer catalogs. Retailers embed
+  a drop-in JavaScript SDK that talks to Cooklist over HTTPS (GraphQL) and WSS
+  (real-time streaming); a B2B Partner API (API key or JWT auth, per-organization
+  field allowlists), authenticated webhooks, and a Model Context Protocol (MCP)
+  interface expose real-time retail inventory and pricing to third-party LLMs
+  such as ChatGPT and Gemini for off-site agentic commerce.
 url: https://raw.githubusercontent.com/api-evangelist/cooklist/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
+- mercury-fund
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://cooklist.com/images/favicon.png
 tags:
 - Company
+- Agentic Commerce
+- Grocery
+- Retail
+- AI Assistant
+- Model Context Protocol
+- Recipes
+- Meal Planning
+- E-Commerce
+- Personalization
 apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+- FN: Cooklist
+  email: daniel@cooklist.com
 common:
 - type: Website
-  url: https://cooklist.co/
+  url: https://cooklist.com/
+- type: Documentation
+  url: https://cooklist.com/platform/agentic-commerce
+- type: About
+  url: https://cooklist.com/company/about
+- type: Support
+  url: https://cooklist.com/support
+- type: SignUp
+  url: https://cooklist.com/request-demo
+- type: PrivacyPolicy
+  url: https://cooklist.com/privacy-policy
+- type: TermsOfService
+  url: https://cooklist.com/terms-of-use
+- type: LLMsTxt
+  url: llms/cooklist-llms.txt
+- type: MCPServer
+  url: mcp/cooklist-mcp.yml
+- type: Webhooks
+  url: asyncapi/cooklist-webhooks.yml
+- type: Authentication
+  url: authentication/cooklist-authentication.yml
+- type: Conventions
+  url: conventions/cooklist-conventions.yml
+- type: Components
+  url: components/cooklist-components.yml
+- type: DomainSecurity
+  url: security/cooklist-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

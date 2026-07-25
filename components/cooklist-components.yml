@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://cooklist.com/llms.txt
+docs: https://cooklist.com/platform/ai-shopping-assistant
+# Client-side / embeddable UI surface documented in the integration model.
+loaders:
+- name: Cooklist JavaScript SDK
+  type: drop-in JavaScript SDK
+  transport: HTTPS (GraphQL) + WSS (streaming)
+  description: A single drop-in JavaScript SDK retailers embed to render the AI assistant experience on web (extensible to mobile patterns).
+families:
+- family: Assistant surface
+  description: Renders the conversational shopping assistant UI, implemented as either a dedicated screen or a persistent/launchable sidebar (copilot across the site).
+  components:
+  - name: Dedicated assistant screen
+    description: Simplest rollout — a standalone assistant screen.
+  - name: Persistent sidebar / copilot
+    description: Launchable sidebar assistant available across the retailer's site.
+- family: Structured UI blocks
+  description: Server-verified rich components streamed over WSS; the client renders enriched fields (price, images) after backend validation (ID-first rendering).
+  components:
+  - name: Product card
+    description: Product tile with verified/enriched catalog fields.
+  - name: Recipe card
+    description: Shoppable recipe card mapping ingredients to purchasable products.
+  - name: Bundle block
+    description: Cart-ready bundle / meal-plan block addable to cart in a single action.
