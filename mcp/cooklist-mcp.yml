@@ -1,7 +1,8 @@
 generated: '2026-07-18'
 method: searched
 source: https://cooklist.com/llms.txt
-status: documented
+status: published
+status_raw: documented
 # Cooklist documents a Model Context Protocol (MCP) interface that exposes
 # real-time retail inventory and pricing to third-party LLMs (e.g. ChatGPT,
 # Gemini) for off-site agentic commerce. It is partner/retailer-gated — no
