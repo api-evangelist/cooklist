@@ -3,14 +3,6 @@ method: searched
 source: https://cooklist.com/llms.txt
 status: published
 status_raw: documented
-# Cooklist documents a Model Context Protocol (MCP) interface that exposes
-# real-time retail inventory and pricing to third-party LLMs (e.g. ChatGPT,
-# Gemini) for off-site agentic commerce. It is partner/retailer-gated — no
-# public, self-serve hosted MCP endpoint URL is published. Tool categories
-# below are the documented agent tool surface from the platform docs and
-# llms.txt (structured tools + verified cart operations); they are documented
-# capability groups, not enumerated operationIds (Cooklist publishes no public
-# OpenAPI).
 server:
   name: cooklist
   transport: http
@@ -25,17 +17,28 @@ references:
 - https://agenticcommerceindex.com/entity/cooklist
 tools:
 - name: catalog_search
-  description: Solution-first agentic search over live retailer catalog (query decomposition + vector retrieval + LLM curation).
+  description: Solution-first agentic search over live retailer catalog (query decomposition + vector
+    retrieval + LLM curation).
   category: search
 - name: inventory_check
-  description: Real-time per-location, per-fulfillment-type inventory and pricing (regular, loyalty, sale) verification.
+  description: Real-time per-location, per-fulfillment-type inventory and pricing (regular, loyalty, sale)
+    verification.
   category: inventory
 - name: cart_operations
-  description: Read/add/update/remove cart items verified against the retailer's cart system of record before reporting success.
+  description: Read/add/update/remove cart items verified against the retailer's cart system of record
+    before reporting success.
   category: cart
 - name: recipe_commerce
-  description: Resolve recipe ingredients to purchasable products via the ingredient ontology and assemble to cart.
+  description: Resolve recipe ingredients to purchasable products via the ingredient ontology and assemble
+    to cart.
   category: recipe
 - name: meal_planning
-  description: Build multi-meal plans and cart-ready bundles scaled to household size, dietary constraints, and budget.
+  description: Build multi-meal plans and cart-ready bundles scaled to household size, dietary constraints,
+    and budget.
   category: planning
+deployment:
+  mode: remote
+  verified: searched
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
