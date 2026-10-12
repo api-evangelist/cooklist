@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/cooklist/integrations
+- https://n8n.io/integrations/cooklist/
+- https://composio.dev/toolkits/cooklist
+- https://monid.ai/tools/cooklist
+checked:
+- https://composio.dev/toolkits/cooklist
+- https://monid.ai/tools/cooklist
+- https://n8n.io/integrations/cooklist/
+- https://zapier.com/apps/cooklist/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
